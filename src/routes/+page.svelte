@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { todoStore } from '$lib/stores/todoStore';
+	import Icon from '$lib/components/icons/Icon.svelte';
 
 	$: totalTodos = $todoStore.length;
 	$: completedTodos = $todoStore.filter(todo => todo.completed).length;
@@ -52,11 +53,9 @@
 				<div
 					class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center"
 				>
-					<ion-icon
-						name="add-outline"
-						class="h-5 w-5 sm:h-6 sm:w-6 text-white"
-						aria-hidden="true"
-					></ion-icon>
+					<div class="w-6 h-6 text-white">
+						<Icon name="AddIcon" />
+					</div>
 				</div>
 				<div class="flex-1 min-w-0">
 					<span class="absolute inset-0" aria-hidden="true"></span>
@@ -72,11 +71,9 @@
 				<div
 					class="flex-shrink-0 h-10 w-10 rounded-full bg-green-500 flex items-center justify-center"
 				>
-					<ion-icon
-						name="list-outline"
-						class="h-5 w-5 sm:h-6 sm:w-6 text-white"
-						aria-hidden="true"
-					></ion-icon>
+					<div class="w-6 h-6 text-white">
+						<Icon name="ListIcon" />
+					</div>
 				</div>
 				<div class="flex-1 min-w-0">
 					<span class="absolute inset-0" aria-hidden="true"></span>

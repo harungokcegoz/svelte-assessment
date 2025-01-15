@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { todoStore } from '$lib/stores/todoStore';
 	import { page } from '$app/stores';
+	import Icon from '$lib/components/icons/Icon.svelte';
 
 	$: totalTodos = $todoStore.length;
 	$: incompleteTodos = $todoStore.filter(todo => !todo.completed).length;
@@ -24,11 +25,9 @@
 			<div class="flex items-center justify-between w-full md:w-auto">
 				<!-- Logo and app name -->
 				<a class="flex items-center" href="/">
-					<ion-icon
-						name="checkbox-outline"
-						class="text-xl md:text-2xl ml-2 md:ml-0 text-blue-600"
-						aria-hidden="true"
-					></ion-icon>
+					<div class="w-6 h-6">
+						<Icon name="CheckSquareIcon" />
+					</div>
 					<h1 class="ml-2 title-base">Todo App</h1>
                 </a>
 
@@ -39,11 +38,9 @@
 					aria-expanded="false"
 				>
 					<span class="sr-only">Open main menu</span>
-					<ion-icon
-						name={isHamburgerMenuOpen ? "close-outline" : "menu-outline"}
-						class="h-6 w-6"
-						aria-hidden="true"
-					></ion-icon>
+					<div class="w-6 h-6">
+						<Icon name={isHamburgerMenuOpen ? "CloseIcon" : "MenuIcon"} />
+					</div>
 				</button>
 			</div>
 
@@ -70,7 +67,9 @@
 				class={`${navClassStyle} ${$page.url.pathname === '/' ? 'bg-gray-100 !text-black' : ''}`}
 			>
 				<div class="flex items-center">
-					<ion-icon name="home-outline" class="mr-2 h-5 w-5" aria-hidden="true"></ion-icon>
+					<div class="w-5 h-5 mr-2">
+						<Icon name="HomeIcon" />
+					</div>
 					Home
 				</div>
 			</a>
@@ -80,7 +79,9 @@
 				class={`${navClassStyle} ${$page.url.pathname === '/todos' ? 'bg-gray-100 !text-black' : ''}`}
 			>
 				<div class="flex items-center">
-					<ion-icon name="list-outline" class="mr-2 h-5 w-5" aria-hidden="true"></ion-icon>
+					<div class="w-5 h-5 mr-2">
+						<Icon name="ListIcon" />
+					</div>
 					Review Todos
 				</div>
 			</a>
@@ -90,7 +91,9 @@
 				class={`${navClassStyle} ${$page.url.pathname === '/todos/create' ? 'bg-gray-100 !text-black' : ''}`}
 			>
 				<div class="flex items-center">
-					<ion-icon name="add-outline" class="mr-2 h-5 w-5" aria-hidden="true"></ion-icon>
+					<div class="w-5 h-5 mr-2">
+						<Icon name="AddIcon" />
+					</div>
 					Create Todo
 				</div>
 			</a>
@@ -100,7 +103,9 @@
 				class={`${navClassStyle} ${$page.url.pathname === '/todos/completed' ? 'bg-gray-100 !text-black' : ''}`}
 			>
 				<div class="flex items-center">
-					<ion-icon name="checkmark-done-outline" class="mr-2 h-5 w-5" aria-hidden="true"></ion-icon>
+					<div class="w-5 h-5 mr-2">
+						<Icon name="CheckIcon" />
+					</div>
 					Completed Todos
 				</div>
 			</a>

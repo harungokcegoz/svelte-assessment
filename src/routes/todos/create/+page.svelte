@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { todoStore } from '$lib/stores/todoStore';
 	import { presetPastelColors, presetIcons } from '$lib/data/preset-data';
+	import Icon from '$lib/components/icons/Icon.svelte';
 	import { goto } from '$app/navigation';
 	import type { Todo } from '$lib/stores/todoStore';
 
@@ -38,7 +39,9 @@
             disabled={!title.trim() || !description.trim() }
             on:click={handleSubmit}
         >
-            <ion-icon name="add-outline" class="text-2xl"></ion-icon>
+			<div class="w-6 h-6 text-white">
+				<Icon name="AddIcon" />
+			</div>
             Create Todo
         </button>
     </div>

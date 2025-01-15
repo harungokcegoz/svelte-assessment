@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { todoStore, type Todo } from '$lib/stores/todoStore';
 	import TodoItem from '$lib/components/TodoItem.svelte';
+	import Icon from '$lib/components/icons/Icon.svelte';
+
     $: completedTodos = $todoStore.filter((todo: Todo) => todo.completed);
     $: sortedTodos = [...completedTodos].sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
 </script>
@@ -19,6 +21,9 @@
                 on:click={() => todoStore.clearCompleted()}
                 class="button-text inline-flex items-center px-4 py-2 h-10 md:h-12 border border-transparent rounded-md bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 button-text"
             >
+				<div class="w-6 h-6 text-white mr-2">
+					<Icon name="TrashIcon" />
+				</div>
                 Clear All Completed
             </button>
         {/if}

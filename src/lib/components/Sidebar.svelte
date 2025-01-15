@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import Icon from '$lib/components/icons/Icon.svelte';
 </script>
 
 <div class="h-full bg-gray-800 flex flex-col">
@@ -13,11 +14,9 @@
 			class:hover:bg-gray-700={$page.url.pathname !== '/'}
 			class:hover:text-white={$page.url.pathname !== '/'}
 		>
-			<ion-icon 
-				name="home-outline" 
-				class="mr-3 h-6 w-6"
-				aria-hidden="true"
-			></ion-icon>
+			<div class="w-6 h-6 mr-3">
+				<Icon name="HomeIcon" />
+			</div>
 			Home
 		</a>
 
@@ -30,11 +29,9 @@
 			class:hover:bg-gray-700={$page.url.pathname !== '/todos'}
 			class:hover:text-white={$page.url.pathname !== '/todos'}
 		>
-			<ion-icon 
-				name="list-outline" 
-				class="mr-3 h-6 w-6"
-				aria-hidden="true"
-			></ion-icon>
+			<div class="w-6 h-6 mr-3">
+				<Icon name="ListIcon" />
+			</div>
 			Incomplete Todos
 		</a>
 
@@ -47,11 +44,9 @@
 			class:hover:bg-gray-700={$page.url.pathname !== '/todos/create'}
 			class:hover:text-white={$page.url.pathname !== '/todos/create'}
 		>
-			<ion-icon 
-				name="add-outline" 
-				class="mr-3 h-6 w-6"
-				aria-hidden="true"
-			></ion-icon>
+			<div class="w-6 h-6 mr-3">
+				<Icon name="AddIcon" />
+			</div>
 			Create Todo
 		</a>
 
@@ -64,11 +59,9 @@
 			class:hover:bg-gray-700={$page.url.pathname !== '/todos/completed'}
 			class:hover:text-white={$page.url.pathname !== '/todos/completed'}
 		>
-			<ion-icon 
-				name="checkmark-done-outline" 
-				class="mr-3 h-6 w-6"
-				aria-hidden="true"
-			></ion-icon>
+			<div class="w-6 h-6 mr-3">
+				<Icon name="CheckIcon" />
+			</div>
 			Completed Todos
 		</a>
 	</nav>
