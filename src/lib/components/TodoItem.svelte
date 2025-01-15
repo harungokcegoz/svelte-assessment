@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { todoStore } from '$lib/stores/todoStore';
     import type { Todo } from '$lib/stores/todoStore';
+	import Icon from '$lib/components/icons/Icon.svelte';
 
     export let todo: Todo;
 
@@ -27,11 +28,9 @@
                 class:bg-gray-500={todo.completed}
             >
                 {#if todo.completed}
-                    <ion-icon 
-                        name="checkmark-outline" 
-                        class="text-white text-sm"
-                        style="margin-top: 1px;"
-                    ></ion-icon>
+                    <div class="w-4 h-4 text-white">
+                        <Icon name="CheckIcon" />
+                    </div>
                 {/if}
             </div>
         </button>
@@ -69,7 +68,9 @@
 				class="text-gray-400 hover:text-red-500 focus:outline-none focus:text-red-500 transition-colors"
 				aria-label="Delete todo"
 			>
-				<ion-icon name="trash-outline" class="text-xl text-red-500"></ion-icon>
+				<div class="w-6 h-6 text-red-500">
+					<Icon name="TrashIcon" />
+				</div>
 			</button>
 		</div>
 	</div>
