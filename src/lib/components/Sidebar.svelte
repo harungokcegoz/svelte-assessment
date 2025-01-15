@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 </script>
 
-<div class="h-[calc(100vh-4rem)] bg-gray-800 flex flex-col overflow-y-auto">
+<div class="h-full bg-gray-800 flex flex-col">
 	<nav class="flex-1 px-2 py-4 space-y-1">
 		<a
 			href="/"
@@ -35,7 +35,7 @@
 				class="mr-3 h-6 w-6"
 				aria-hidden="true"
 			></ion-icon>
-			Review Todos
+			Incomplete Todos
 		</a>
 
 		<a
