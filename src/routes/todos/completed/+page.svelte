@@ -1,11 +1,8 @@
 <script lang="ts">
-	import { todoStore } from '$lib/stores/todoStore';
+	import { todoStore, type Todo } from '$lib/stores/todoStore';
 	import TodoItem from '$lib/components/TodoItem.svelte';
-
-    $: completedTodos = $todoStore.filter(todo => todo.completed);
-    $: sortedTodos = [...completedTodos].sort((a, b) => {
-        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-    });
+    $: completedTodos = $todoStore.filter((todo: Todo) => todo.completed);
+    $: sortedTodos = [...completedTodos].sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
 </script>
 
 <div class="bg-white rounded-lg shadow px-5 py-6 sm:px-6">
@@ -34,6 +31,8 @@
 					<TodoItem {todo} />
 				{/each}
 			</div>
-		{/if}
+        {:else}
+            <p class="text-secondary">No completed todos yet.</p>
+        {/if}
 	</div>
 </div> 
