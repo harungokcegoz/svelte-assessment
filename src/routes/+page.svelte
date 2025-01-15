@@ -7,7 +7,7 @@
 	$: incompleteTodos = totalTodos - completedTodos;
 </script>
 
-<div class="bg-white rounded-lg shadow px-5 py-6 sm:px-6 w-full max-w-7xl mx-auto">
+<div class="bg-white rounded-lg shadow p-8 sm:px-6 w-full max-w-7xl mx-auto">
 	<div class="border-b border-gray-200 pb-5">
 		<h3 class="title-large">Welcome to Todo App</h3>
 		<p class="mt-2 max-w-4xl text-secondary">

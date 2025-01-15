@@ -72,38 +72,41 @@
 			></textarea>
 		</div>
 
-		<!-- Color selection -->
-		<div>
-			<span id="color-label" class="block label mb-2">Select Background Color</span>
-			<div class="grid grid-cols-5 gap-2" role="radiogroup" aria-labelledby="color-label">
-				{#each [...presetPastelColors] as [name, color]}
-					<button
-						type="button"
-						class="w-10 h-10 rounded-full border-2 transition-transform hover:scale-110"
-						style="background-color: {color}; border-color: {selectedColor === color ? '#4B5563' : 'transparent'}"
-						on:click={() => (selectedColor = color)}
-						aria-label="Select color {name}"
-						aria-pressed={selectedColor === color}
-					></button>
-				{/each}
+		<!-- Color and Icon Selection Container -->
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			<!-- Color selection -->
+			<div class="space-y-10">
+				<span id="color-label" class="block label mb-2">Select Background Color</span>
+				<div class="grid grid-cols-5 gap-4 max-w-md mx-auto" role="radiogroup" aria-labelledby="color-label">
+					{#each [...presetPastelColors] as [name, color]}
+						<button
+							type="button"
+							class="w-12 h-12 rounded-full border-2 transition-transform hover:scale-110 mx-auto"
+							style="background-color: {color}; border-color: {selectedColor === color ? '#4B5563' : 'transparent'}"
+							on:click={() => (selectedColor = color)}
+							aria-label="Select color {name}"
+							aria-pressed={selectedColor === color}
+						></button>
+					{/each}
+				</div>
 			</div>
-		</div>
 
-		<!-- Icon selection -->
-		<div>
-			<span id="icon-label" class="block label mb-2">Select Icon</span>
-			<div class="grid grid-cols-8 gap-2" role="radiogroup" aria-labelledby="icon-label">
-				{#each [...presetIcons] as [name, icon]}
-					<button
-						type="button"
-						class="w-10 h-10 flex items-center justify-center rounded border-2 transition-transform hover:scale-110 text-xl"
-						class:border-gray-600={selectedIcon === icon}
-						class:border-transparent={selectedIcon !== icon}
-						on:click={() => (selectedIcon = icon)}
-						aria-label="Select icon {name}"
-						aria-pressed={selectedIcon === icon}
-					>{icon}</button>
-				{/each}
+			<!-- Icon selection -->
+			<div class="space-y-10">
+				<span id="icon-label" class="block label mb-2">Select Icon</span>
+				<div class="grid grid-cols-5 gap-4 max-w-md mx-auto" role="radiogroup" aria-labelledby="icon-label">
+					{#each [...presetIcons] as [name, icon]}
+						<button
+							type="button"
+							class="w-12 h-12 flex items-center justify-center rounded border-2 transition-transform hover:scale-110 text-xl mx-auto"
+							class:border-gray-600={selectedIcon === icon}
+							class:border-transparent={selectedIcon !== icon}
+							on:click={() => (selectedIcon = icon)}
+							aria-label="Select icon {name}"
+							aria-pressed={selectedIcon === icon}
+						>{icon}</button>
+					{/each}
+				</div>
 			</div>
 		</div>
 	</form>

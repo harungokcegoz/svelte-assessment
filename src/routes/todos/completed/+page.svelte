@@ -7,7 +7,7 @@
     $: sortedTodos = [...completedTodos].sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
 </script>
 
-<div class="bg-white rounded-lg shadow px-5 py-6 sm:px-6">
+<div class="bg-white rounded-lg shadow p-8 sm:px-6">
 	<div class="flex justify-between items-center border-b border-gray-200 pb-5">
         <div class="flex flex-col">
             <h3 class="title-large">Completed Todos</h3>
