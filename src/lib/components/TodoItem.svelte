@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { todoStore } from '$lib/stores/todoStore';
-	import { DotLottieSvelte } from '@lottiefiles/dotlottie-svelte';
     import type { Todo } from '$lib/stores/todoStore';
 
     export let todo: Todo;
@@ -42,36 +41,25 @@
 >
 	<!-- Main Content -->
 	<div class="flex items-center gap-4">
-		<!-- Checkbox with Animation -->
-		<div class="relative">
-			<div class="absolute -top-10 -left-4 w-24 h-24 pointer-events-none">
-				<DotLottieSvelte
-					dotLottieRefCallback={handleDotLottieLoad}
-					src="/animations/confetti.json"
-					autoplay={false}
-					loop={false}
-				/>
-			</div>
-
-			<button
-				on:click={handleToggle}
-				class="flex-shrink-0 group relative rounded-full hover:ring-2 hover:ring-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
-				aria-label={todo.completed ? "Mark as incomplete" : "Mark as complete"}
-			>
-				<div
-					class="h-6 w-6 rounded-full border-2 border-gray-400 group-hover:border-gray-500 transition-colors flex items-center justify-center"
-					class:bg-gray-500={todo.completed || isCompleting}
-				>
-					{#if todo.completed || isCompleting}
-						<ion-icon 
-							name="checkmark-outline" 
-							class="text-white text-sm"
-							style="margin-top: 1px;"
-						></ion-icon>
-					{/if}
-				</div>
-			</button>
-		</div>
+		<!-- Checkbox -->
+        <button
+            on:click={handleToggle}
+            class="flex-shrink-0 group relative rounded-full hover:ring-2 hover:ring-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
+            aria-label={todo.completed ? "Mark as incomplete" : "Mark as complete"}
+        >
+            <div
+                class="h-6 w-6 rounded-full border-2 border-gray-400 group-hover:border-gray-500 transition-colors flex items-center justify-center"
+                class:bg-gray-500={todo.completed || isCompleting}
+            >
+                {#if todo.completed || isCompleting}
+                    <ion-icon 
+                        name="checkmark-outline" 
+                        class="text-white text-sm"
+                        style="margin-top: 1px;"
+                    ></ion-icon>
+                {/if}
+            </div>
+        </button>
 
 		<!-- Todo Content -->
 		<div class="flex-1 min-w-0">
