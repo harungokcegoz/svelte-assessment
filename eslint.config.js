@@ -20,15 +20,28 @@ export default ts.config(
 				...globals.browser,
 				...globals.node
 			}
+		},
+		rules: {
+			'no-unused-vars': 'warn',
+			'no-console': 'warn',
+			'prefer-const': 'error',
+			'@typescript-eslint/no-explicit-any': 'warn',
+			'@typescript-eslint/explicit-function-return-type': 'warn'
 		}
 	},
 	{
 		files: ['**/*.svelte'],
-
 		languageOptions: {
 			parserOptions: {
 				parser: ts.parser
 			}
+		},
+		rules: {
+			'svelte/valid-compile': 'error',
+			'svelte/no-unused-svelte-ignore': 'error',
+			'svelte/html-quotes': ['error', { prefer: 'double' }],
+			'svelte/spaced-html-comment': 'error',
+			'svelte/no-at-html-tags': 'warn'
 		}
 	}
 );
