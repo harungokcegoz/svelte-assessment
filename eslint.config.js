@@ -25,8 +25,8 @@ export default ts.config(
 			'no-unused-vars': 'warn',
 			'no-console': 'warn',
 			'prefer-const': 'error',
-			'@typescript-eslint/no-explicit-any': 'warn',
-			'@typescript-eslint/explicit-function-return-type': 'warn'
+			'@typescript-eslint/no-explicit-any': 'off',
+			'@typescript-eslint/explicit-function-return-type': 'off'
 		}
 	},
 	{
@@ -42,6 +42,7 @@ export default ts.config(
 			'svelte/html-quotes': ['error', { prefer: 'double' }],
 			'svelte/spaced-html-comment': 'error',
 			'svelte/no-at-html-tags': 'warn'
+			
 		}
 	}
 );
