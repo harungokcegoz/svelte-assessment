@@ -7,15 +7,11 @@
 	$: completedTodos = $todoStore.filter((todo: Todo) => todo.completed);
 </script>
 
-<div class="max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-md">
-	<div class="flex justify-between items-center mb-8">
+<div class="mx-auto max-w-7xl rounded-lg bg-white p-8 shadow-md">
+	<div class="mb-8 flex items-center justify-between">
 		<h1 class="title-large">Completed Todos</h1>
 		{#if completedTodos.length > 0}
-			<Button
-				variant="danger"
-				onClick={() => todoStore.clearCompleted()}
-				icon="TrashIcon"
-			>
+			<Button variant="danger" onClick={() => todoStore.clearCompleted()} icon="TrashIcon">
 				Clear All Completed
 			</Button>
 		{/if}
@@ -23,11 +19,11 @@
 
 	<div class="space-y-4">
 		{#if completedTodos.length === 0}
-			<p class="text-gray-500 text-center py-8">No completed todos yet.</p>
+			<p class="py-8 text-center text-gray-500">No completed todos yet.</p>
 		{:else}
 			{#each completedTodos as todo (todo.id)}
 				<TodoItem {todo} />
 			{/each}
 		{/if}
 	</div>
-</div> 
+</div>

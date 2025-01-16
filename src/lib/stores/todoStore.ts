@@ -32,15 +32,15 @@ function createTodoStore() {
 	return {
 		subscribe,
 		addTodo: (newTodo: Todo) => {
-			update(todos => {
+			update((todos) => {
 				const newTodos = [...todos, newTodo];
 				saveTodos(newTodos);
 				return newTodos;
 			});
 		},
 		toggleTodo: (id: string) => {
-			update(todos => {
-				const newTodos = todos.map(todo =>
+			update((todos) => {
+				const newTodos = todos.map((todo) =>
 					todo.id === id ? { ...todo, completed: !todo.completed } : todo
 				);
 				saveTodos(newTodos);
@@ -48,15 +48,15 @@ function createTodoStore() {
 			});
 		},
 		deleteTodo: (id: string) => {
-			update(todos => {
-				const newTodos = todos.filter(todo => todo.id !== id);
+			update((todos) => {
+				const newTodos = todos.filter((todo) => todo.id !== id);
 				saveTodos(newTodos);
 				return newTodos;
 			});
 		},
 		clearCompleted: () => {
-			update(todos => {
-				const newTodos = todos.filter(todo => !todo.completed);
+			update((todos) => {
+				const newTodos = todos.filter((todo) => !todo.completed);
 				saveTodos(newTodos);
 				return newTodos;
 			});
@@ -68,4 +68,4 @@ function createTodoStore() {
 	};
 }
 
-export const todoStore = createTodoStore(); 
+export const todoStore = createTodoStore();

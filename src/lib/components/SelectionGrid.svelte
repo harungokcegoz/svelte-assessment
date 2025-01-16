@@ -11,12 +11,18 @@
 </script>
 
 <div class="space-y-10">
-	<span id="{type}-label" class="block label mb-2">{label}</span>
-	<div class="grid grid-cols-5 gap-4 max-w-md mx-auto" role="radiogroup" aria-labelledby="{type}-label">
+	<span id="{type}-label" class="label mb-2 block">{label}</span>
+	<div
+		class="mx-auto grid max-w-md grid-cols-5 gap-4"
+		role="radiogroup"
+		aria-labelledby="{type}-label"
+	>
 		{#each items as [name, value]}
 			<button
 				type="button"
-				class="w-12 h-12 mx-auto transition-transform hover:scale-110 {type === 'icon' ? 'flex items-center justify-center rounded' : 'rounded-full'}"
+				class="mx-auto h-12 w-12 transition-transform hover:scale-110 {type === 'icon'
+					? 'flex items-center justify-center rounded'
+					: 'rounded-full'}"
 				class:border-2={true}
 				class:border-gray-600={selectedValue === value}
 				class:border-transparent={selectedValue !== value}
@@ -31,4 +37,4 @@
 			</button>
 		{/each}
 	</div>
-</div> 
+</div>

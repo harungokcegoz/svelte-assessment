@@ -29,49 +29,49 @@
 	}
 </script>
 
-<div class="max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-md space-y-6">
-    <div class="flex justify-between items-center">
-	    <h1 class="title-large">Create New Todo</h1>
-    
-        <!-- Submit button -->
-        <Button
-            type="submit"
-            disabled={!title.trim() || !description.trim()}
-            onClick={handleSubmit}
-            icon="AddIcon"
-        >
-            Create Todo
-        </Button>
-    </div>
+<div class="mx-auto max-w-7xl space-y-6 rounded-lg bg-white p-8 shadow-md">
+	<div class="flex items-center justify-between">
+		<h1 class="title-large">Create New Todo</h1>
+
+		<!-- Submit button -->
+		<Button
+			type="submit"
+			disabled={!title.trim() || !description.trim()}
+			onClick={handleSubmit}
+			icon="AddIcon"
+		>
+			Create Todo
+		</Button>
+	</div>
 
 	<form on:submit|preventDefault={handleSubmit} class="space-y-6">
 		<!-- Title input -->
 		<div>
-			<label for="title" class="block label">Title</label>
+			<label for="title" class="label block">Title</label>
 			<input
 				type="text"
 				id="title"
 				bind:value={title}
-				class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-4"
+				class="mt-1 block w-full rounded-md border-gray-300 p-4 shadow-sm focus:border-blue-500 focus:ring-blue-500"
 				required
-                placeholder="Enter your task..."
+				placeholder="Enter your task..."
 			/>
 		</div>
 
 		<!-- Description input -->
 		<div>
-			<label for="description" class="block label">Description</label>
+			<label for="description" class="label block">Description</label>
 			<textarea
 				id="description"
 				bind:value={description}
 				rows="3"
-				class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-4"
+				class="mt-1 block w-full rounded-md border-gray-300 p-4 shadow-sm focus:border-blue-500 focus:ring-blue-500"
 				placeholder="Enter your description..."
 			></textarea>
 		</div>
 
 		<!-- Color and Icon Selection Container -->
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
 			<SelectionGrid
 				items={[...presetPastelColors]}
 				selectedValue={selectedColor}
@@ -89,4 +89,4 @@
 			/>
 		</div>
 	</form>
-</div> 
+</div>

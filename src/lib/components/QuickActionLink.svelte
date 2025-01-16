@@ -11,18 +11,16 @@
 
 <a
 	{href}
-	class="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500"
+	class="relative flex items-center space-x-3 rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 hover:border-gray-400"
 >
-	<div
-		class="flex-shrink-0 h-10 w-10 rounded-full {bgColor} flex items-center justify-center"
-	>
-		<div class="w-6 h-6 text-white">
+	<div class="h-10 w-10 flex-shrink-0 rounded-full {bgColor} flex items-center justify-center">
+		<div class="h-6 w-6 text-white">
 			<Icon name={icon} />
 		</div>
 	</div>
-	<div class="flex-1 min-w-0">
+	<div class="min-w-0 flex-1">
 		<span class="absolute inset-0" aria-hidden="true"></span>
 		<p class="text-primary font-medium">{title}</p>
 		<p class="text-secondary">{description}</p>
 	</div>
-</a> 
+</a>

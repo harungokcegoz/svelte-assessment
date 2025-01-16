@@ -25,10 +25,10 @@
 	] as const;
 </script>
 
-<div class="h-full bg-gray-800 flex flex-col">
-	<nav class="flex-1 px-2 py-4 space-y-1">
+<div class="flex h-full flex-col bg-gray-800">
+	<nav class="flex-1 space-y-1 px-2 py-4">
 		{#each navItems as item}
 			<SidebarItem {...item} />
 		{/each}
 	</nav>
-</div> 
+</div>

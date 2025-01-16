@@ -1,4 +1,3 @@
-
 export interface Todo {
 	id: string;
 	title: string;
@@ -9,4 +8,12 @@ export interface Todo {
 	icon: string;
 }
 
-export type IconName = 'HomeIcon' | 'ListIcon' | 'AddIcon' | 'CheckIcon' | 'MenuIcon' | 'CloseIcon' | 'CheckSquareIcon' | 'TrashIcon';
+export type IconName =
+	| 'HomeIcon'
+	| 'ListIcon'
+	| 'AddIcon'
+	| 'CheckIcon'
+	| 'MenuIcon'
+	| 'CloseIcon'
+	| 'CheckSquareIcon'
+	| 'TrashIcon';

@@ -17,6 +17,6 @@
 		".svelte-kit/types/src/**/$types.d.ts",
 		"src/**/*.js",
 		"src/**/*.ts",
-		"src/**/*.svelte",
+		"src/**/*.svelte"
 	]
 }
