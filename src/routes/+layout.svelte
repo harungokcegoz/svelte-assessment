@@ -23,9 +23,3 @@
 		</main>
 	</div>
 </div>
-
-<style lang="postcss">
-	:global(body) {
-		@apply overflow-x-hidden;
-	}
-</style>

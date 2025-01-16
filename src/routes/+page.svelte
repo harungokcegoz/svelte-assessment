@@ -44,9 +44,3 @@
 		</div>
 	</div>
 </div>
-
-<style lang="postcss">
-	:global(body) {
-		@apply min-h-screen bg-gray-100;
-	}
-</style>
