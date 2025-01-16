@@ -1,14 +1,5 @@
 import { writable } from 'svelte/store';
-
-export interface Todo {
-	id: string;
-	title: string;
-	description: string;
-	completed: boolean;
-	createdAt: Date;
-	bgColor: string;
-	icon: string;
-}
+import type { Todo } from '../types/types';
 
 function loadTodos(): Todo[] {
 	if (typeof window === 'undefined') return [];
