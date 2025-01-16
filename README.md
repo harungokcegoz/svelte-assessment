@@ -86,6 +86,7 @@ npm run preview
 - Dates to the todos and a sorting feature to the todos(as default it is sorted by date).
 - Description to the todos.
 - Toggle to complete todos.
+- Typography to make texts more consistent and readable throughout the project.(typography.css)
 
 1. **Linter and Formatter**: I added linter and formatter to the project to make sure the code is clean and consistent.
 2. **UI Library**: I have used TailwindCSS for styling to ease the development process.
