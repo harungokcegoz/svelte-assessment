@@ -1,43 +1,33 @@
 <script lang="ts">
-	import { todoStore, type Todo } from '$lib/stores/todoStore';
+	import { todoStore } from '$lib/stores/todoStore';
+	import type { Todo } from '$lib/types/types';
 	import TodoItem from '$lib/components/TodoItem.svelte';
-	import Icon from '$lib/components/icons/Icon.svelte';
+	import Button from '$lib/components/Button.svelte';
 
-    $: completedTodos = $todoStore.filter((todo: Todo) => todo.completed);
-    $: sortedTodos = [...completedTodos].sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+	$: completedTodos = $todoStore.filter((todo: Todo) => todo.completed);
 </script>
 
-<div class="bg-white rounded-lg shadow p-8 sm:px-6">
-	<div class="flex justify-between items-center border-b border-gray-200 pb-5">
-        <div class="flex flex-col">
-            <h3 class="title-large">Completed Todos</h3>
-            <p class="mt-2 max-w-4xl text-secondary">
-                Review your completed tasks here.
-            </p>
-        </div>
-        
-        {#if completedTodos.length > 0}
-            <button
-                on:click={() => todoStore.clearCompleted()}
-                class="button-text inline-flex items-center px-4 py-2 h-10 md:h-12 border border-transparent rounded-md bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 button-text"
-            >
-				<div class="w-6 h-6 text-white mr-2">
-					<Icon name="TrashIcon" />
-				</div>
-                Clear All Completed
-            </button>
-        {/if}
+<div class="max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-md">
+	<div class="flex justify-between items-center mb-8">
+		<h1 class="title-large">Completed Todos</h1>
+		{#if completedTodos.length > 0}
+			<Button
+				variant="danger"
+				onClick={() => todoStore.clearCompleted()}
+				icon="TrashIcon"
+			>
+				Clear All Completed
+			</Button>
+		{/if}
 	</div>
 
-	<div class="mt-6">
-		{#if completedTodos.length > 0}
-			<div class="divide-y divide-gray-200 space-y-4">
-				{#each sortedTodos as todo (todo.id)}
-					<TodoItem {todo} />
-				{/each}
-			</div>
-        {:else}
-            <p class="text-secondary">No completed todos yet.</p>
-        {/if}
+	<div class="space-y-4">
+		{#if completedTodos.length === 0}
+			<p class="text-gray-500 text-center py-8">No completed todos yet.</p>
+		{:else}
+			{#each completedTodos as todo (todo.id)}
+				<TodoItem {todo} />
+			{/each}
+		{/if}
 	</div>
 </div> 

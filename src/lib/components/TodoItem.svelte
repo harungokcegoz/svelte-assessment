@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { todoStore } from '$lib/stores/todoStore';
-    import type { Todo } from '$lib/stores/todoStore';
+    import type { Todo } from '$lib/types/types';
 	import Icon from '$lib/components/icons/Icon.svelte';
 
     export let todo: Todo;

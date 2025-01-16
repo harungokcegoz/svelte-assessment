@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { todoStore } from '$lib/stores/todoStore';
 	import { presetPastelColors, presetIcons } from '$lib/data/preset-data';
-	import Icon from '$lib/components/icons/Icon.svelte';
+	import Button from '$lib/components/Button.svelte';
+	import SelectionGrid from '$lib/components/SelectionGrid.svelte';
 	import { goto } from '$app/navigation';
-	import type { Todo } from '$lib/stores/todoStore';
+	import type { Todo } from '$lib/types/types';
 
 	let title = '';
 	let description = '';
@@ -11,7 +12,7 @@
 	let selectedIcon = '📝'; // Default to memo icon
 
 	function handleSubmit() {
-		if (!title.trim()) return;
+		if (!title.trim() || !description.trim()) return;
 
 		const newTodo: Todo = {
 			id: crypto.randomUUID(),
@@ -33,17 +34,14 @@
 	    <h1 class="title-large">Create New Todo</h1>
     
         <!-- Submit button -->
-        <button
+        <Button
             type="submit"
-            class="button-text flex items-center gap-2 justify-center px-4 py-2 bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed h-8 sm:h-12"
-            disabled={!title.trim() || !description.trim() }
-            on:click={handleSubmit}
+            disabled={!title.trim() || !description.trim()}
+            onClick={handleSubmit}
+            icon="AddIcon"
         >
-			<div class="w-6 h-6 text-white">
-				<Icon name="AddIcon" />
-			</div>
             Create Todo
-        </button>
+        </Button>
     </div>
 
 	<form on:submit|preventDefault={handleSubmit} class="space-y-6">
@@ -74,40 +72,21 @@
 
 		<!-- Color and Icon Selection Container -->
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-			<!-- Color selection -->
-			<div class="space-y-10">
-				<span id="color-label" class="block label mb-2">Select Background Color</span>
-				<div class="grid grid-cols-5 gap-4 max-w-md mx-auto" role="radiogroup" aria-labelledby="color-label">
-					{#each [...presetPastelColors] as [name, color]}
-						<button
-							type="button"
-							class="w-12 h-12 rounded-full border-2 transition-transform hover:scale-110 mx-auto"
-							style="background-color: {color}; border-color: {selectedColor === color ? '#4B5563' : 'transparent'}"
-							on:click={() => (selectedColor = color)}
-							aria-label="Select color {name}"
-							aria-pressed={selectedColor === color}
-						></button>
-					{/each}
-				</div>
-			</div>
+			<SelectionGrid
+				items={[...presetPastelColors]}
+				selectedValue={selectedColor}
+				onSelect={(value) => (selectedColor = value)}
+				type="color"
+				label="Select Background Color"
+			/>
 
-			<!-- Icon selection -->
-			<div class="space-y-10">
-				<span id="icon-label" class="block label mb-2">Select Icon</span>
-				<div class="grid grid-cols-5 gap-4 max-w-md mx-auto" role="radiogroup" aria-labelledby="icon-label">
-					{#each [...presetIcons] as [name, icon]}
-						<button
-							type="button"
-							class="w-12 h-12 flex items-center justify-center rounded border-2 transition-transform hover:scale-110 text-xl mx-auto"
-							class:border-gray-600={selectedIcon === icon}
-							class:border-transparent={selectedIcon !== icon}
-							on:click={() => (selectedIcon = icon)}
-							aria-label="Select icon {name}"
-							aria-pressed={selectedIcon === icon}
-						>{icon}</button>
-					{/each}
-				</div>
-			</div>
+			<SelectionGrid
+				items={[...presetIcons]}
+				selectedValue={selectedIcon}
+				onSelect={(value) => (selectedIcon = value)}
+				type="icon"
+				label="Select Icon"
+			/>
 		</div>
 	</form>
 </div> 
